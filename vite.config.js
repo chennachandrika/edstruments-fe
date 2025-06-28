@@ -9,4 +9,5 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react-pdf"],
   },
+  base: "/edstruments-fe/",
 });
