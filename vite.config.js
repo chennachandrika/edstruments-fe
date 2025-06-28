@@ -4,10 +4,12 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss(), svgr()],
-  optimizeDeps: {
-    include: ["react-pdf"],
-  },
-  base: "/edstruments-fe/",
+export default defineConfig(({ command }) => {
+  return {
+    plugins: [react(), tailwindcss(), svgr()],
+    optimizeDeps: {
+      include: ["react-pdf"],
+    },
+    base: command === "build" ? "/edstruments-fe/" : "/",
+  };
 });
