@@ -30,10 +30,15 @@ jobs:
         run: yarn build
 
       - name: List build files
-        run: ls -R build/
+        run: ls -R dist/
 
       - name: Upload Production Build
         uses: actions/upload-artifact@v3
         with:
           name: production-build
-          path: build/
+          path: dist/
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
