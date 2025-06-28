@@ -1,9 +1,9 @@
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/context";
 import FormTabs from "./InvoiceFormTabsSection/FormTabs";
 
 import Header from "./common/Header";
 import InvoiceSection from "./InvoiceFileSection/InvoiceSection";
-import { useInvoice } from "../context/InvoiceContext";
+import { useInvoice } from "../context/context";
 
 const Home = () => {
   const { logout } = useAuth();

@@ -2,7 +2,7 @@ import { useDropzone } from "react-dropzone";
 import { useCallback, useRef, useState } from "react";
 
 import uploadFileImage from "../../assets/uploadFileImage.webp";
-import { useInvoice } from "../../context/InvoiceContext";
+import { useInvoice } from "../../context/context";
 import HandleFileUpload from "./HandleFileUpload";
 
 const FileUpload = () => {

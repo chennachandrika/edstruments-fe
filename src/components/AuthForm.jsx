@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/context";
 
 const AuthForm = () => {
   const { login } = useAuth();

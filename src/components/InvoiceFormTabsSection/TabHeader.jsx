@@ -1,4 +1,4 @@
-import { inVoiceTabDetails } from "./FormTabs";
+import { inVoiceTabDetails } from "../../constants";
 
 const TabHeader = ({ activeTab, handleTabClick }) => (
   <div className="md:absolute md:top-[88px] bg-white w-full md:w-[44%] p-3 md:p-4 flex gap-4 z-10">

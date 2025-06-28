@@ -1,4 +1,4 @@
-import { useInvoice } from "../../context/InvoiceContext";
+import { useInvoice } from "../../context/context";
 
 const Selector = ({ labelName, name, options }) => {
   const { formik, isFormSubmitted } = useInvoice();

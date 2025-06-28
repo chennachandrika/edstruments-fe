@@ -41,16 +41,16 @@ export const inVoiceTabDetails = [
   {
     tabValue: "venderDetails",
     tabTitle: "Vendor Details",
-    tabContent: <VendorDetailsForm />,
+    tabContent: VendorDetailsForm,
   },
   {
     tabValue: "inVoiceTabDetails",
     tabTitle: "Invoice Details",
-    tabContent: <InVoiceDetaisForm />,
+    tabContent: InVoiceDetaisForm,
   },
   {
     tabValue: "comments",
     tabTitle: "Comments",
-    tabContent: <CommentsForm />,
+    tabContent: CommentsForm,
   },
 ];

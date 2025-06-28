@@ -1,5 +1,5 @@
 import LeftArrowIcon from "../../assets/arrow.svg?react";
-import { useInvoice } from "../../context/InvoiceContext";
+import { useInvoice } from "../../context/context";
 import FilePreview from "./FilePreview";
 import FileUpload from "./FileUpload";
 const InvoiceSection = () => {

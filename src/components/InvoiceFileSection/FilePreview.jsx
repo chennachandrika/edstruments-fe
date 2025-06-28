@@ -1,6 +1,6 @@
 import { Document, Page } from "react-pdf";
 import { useState } from "react";
-import { useInvoice } from "../../context/InvoiceContext";
+import { useInvoice } from "../../context/context";
 import { pdfjs } from "react-pdf";
 import { ScrollArea } from "../common/ScrollArea";
 
