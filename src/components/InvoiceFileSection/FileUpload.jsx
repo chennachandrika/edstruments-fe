@@ -17,26 +17,32 @@ const FileUpload = () => {
   };
 
   // Function to handle file selection (both drop and manual)
-  const handleFile = (file) => {
-    if (!file) return;
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      const base64File = reader.result; // Base64 encoded file
-      const fileData = {
-        name: file.name, // Store file name
-        base64: base64File, // Store Base64 content
+  const handleFile = useCallback(
+    (file) => {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const base64File = reader.result; // Base64 encoded file
+        const fileData = {
+          name: file.name, // Store file name
+          base64: base64File, // Store Base64 content
+        };
+        handleFormValues({ file: JSON.stringify(fileData) });
+        setPreview(fileData); // Set preview for display
+        formik.setFieldValue("file", fileData);
       };
-      handleFormValues({ file: JSON.stringify(fileData) });
-      setPreview(fileData); // Set preview for display
-      formik.setFieldValue("file", fileData);
-    };
-  };
+    },
+    [formik, handleFormValues]
+  );
 
   // Handle file drop
-  const onDrop = useCallback((acceptedFiles) => {
-    handleFile(acceptedFiles[0]);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      handleFile(acceptedFiles[0]);
+    },
+    [handleFile]
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

@@ -1,15 +1,11 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 
 // Create a context for authentication
 const InvoiceContext = createContext();
 
 // Provide AuthContext to components
-export const useInvoice = () => {
-  return useContext(InvoiceContext);
-};
-
 export const InvoiceProvider = ({ children }) => {
   const [formValues, setFormValues] = useState(
     JSON.parse(localStorage.getItem("invoiceDetails")) || {}
@@ -83,15 +79,18 @@ export const InvoiceProvider = ({ children }) => {
     },
   });
 
-  const handleFormValues = (keyValues) => {
-    const updatedValues = { ...formValues, ...keyValues };
-    localStorage.setItem("invoiceDetails", JSON.stringify(updatedValues));
-    setFormValues(updatedValues);
-  };
+  const handleFormValues = useCallback(
+    (keyValues) => {
+      const updatedValues = { ...formValues, ...keyValues };
+      localStorage.setItem("invoiceDetails", JSON.stringify(updatedValues));
+      setFormValues(updatedValues);
+    },
+    [formValues]
+  );
 
   useEffect(() => {
     handleFormValues(formik.values);
-  }, [formik.values]);
+  }, [formik.values, handleFormValues]);
 
   return (
     <InvoiceContext.Provider

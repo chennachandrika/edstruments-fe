@@ -1,12 +1,7 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState } from "react";
 
 // Create a context for authentication
 const AuthContext = createContext();
-
-// Provide AuthContext to components
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(

@@ -1,3 +1,7 @@
+import CommentsForm from "./components/InvoiceFormTabsSection/CommentsForm";
+import InVoiceDetaisForm from "./components/InvoiceFormTabsSection/InVoiceDetaisForm";
+import VendorDetailsForm from "./components/InvoiceFormTabsSection/VendorDetailsForm";
+
 export const testVendorOptions = [
   { name: "Vendor 1", value: "vendor1" },
   { name: "Vendor 2", value: "vendor2" },
@@ -31,4 +35,22 @@ export const testDepOptions = [
 export const testLocationOptions = [
   { name: "Location 1", value: "location1" },
   { name: "Location 2", value: "location2" },
+];
+
+export const inVoiceTabDetails = [
+  {
+    tabValue: "venderDetails",
+    tabTitle: "Vendor Details",
+    tabContent: <VendorDetailsForm />,
+  },
+  {
+    tabValue: "inVoiceTabDetails",
+    tabTitle: "Invoice Details",
+    tabContent: <InVoiceDetaisForm />,
+  },
+  {
+    tabValue: "comments",
+    tabTitle: "Comments",
+    tabContent: <CommentsForm />,
+  },
 ];

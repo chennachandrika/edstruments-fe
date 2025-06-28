@@ -2,27 +2,7 @@ import { useState, useRef } from "react";
 import { ScrollArea } from "../common/ScrollArea";
 import TabHeader from "./TabHeader";
 import TabSection from "./TabSection";
-import VendorDetailsForm from "./VendorDetailsForm";
-import InVoiceDetaisForm from "./InVoiceDetaisForm";
-import CommentsForm from "./CommentsForm";
-
-export const inVoiceTabDetails = [
-  {
-    tabValue: "venderDetails",
-    tabTitle: "Vendor Details",
-    tabContent: <VendorDetailsForm />,
-  },
-  {
-    tabValue: "inVoiceTabDetails",
-    tabTitle: "Invoice Details",
-    tabContent: <InVoiceDetaisForm />,
-  },
-  {
-    tabValue: "comments",
-    tabTitle: "Comments",
-    tabContent: <CommentsForm />,
-  },
-];
+import { inVoiceTabDetails } from "../../constants";
 
 const FormTabs = () => {
   const [activeTab, setActiveTab] = useState(inVoiceTabDetails[0].tabValue);
